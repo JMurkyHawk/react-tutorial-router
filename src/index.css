@@ -1,13 +1,286 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    min-height: 100vh;
+    
+    display: flex;
+}
+
+#root {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.App {
+    border: 1px solid #333;
+    box-shadow: 0px 0px 15px gray;
+
+    width: 100%;
+    max-width: 800px;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Header, .Footer {
+    background-color: #66d8f5;
+    padding: 1rem;
+    
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header h1 {
+    font-size: 1.5rem;
+}
+
+.Header svg {
+    font-size: 2rem;
+}
+
+.Footer {
+    padding: 0.75rem;
+
+    display: grid;
+    place-content: center;
+}
+
+.Nav {
+    background-color: #333;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.searchForm {
+    padding: 1rem 0 0 0.75rem;
+    width: 80%;
+}
+
+.searchForm input[type="text"] {
+    border-radius: 0.25rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    padding: 0.25rem;
+
+    width: 100%;
+    min-height: 48px;
+}
+
+.searchForm label {
+    position: absolute;
+    left: -99999px;
+}
+
+.Nav ul {
+    color: #fff;
+    list-style-type: none;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.Nav li {
+    padding: 1rem;
+}
+
+.Nav li:hover, 
+.Nav li:focus {
+    padding: 1rem;
+}
+
+.Nav li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.Nav li:hover, 
+.Nav li:focus, 
+.Nav li:hover a, 
+.Nav li:focus a  {
+    background-color: #eee;
+    color: #333;
+}
+
+.Nav li:hover a, 
+.Nav li:focus a {
+    cursor: pointer;
+}
+
+.Home, .NewPost, .PostPage, .About, .Missing {
+    background-color: #fff;
+    overflow-y: auto;
+    padding: 1rem;
+
+    width: 100%;
+
+    flex-grow: 1;
+}
+
+.post {
+    border-bottom: 1px solid lightgray;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.Home .post a {
+    text-decoration: none;
+}
+
+.Home .post a, 
+.Home .post a:visited {
+    color: #000;
+}
+
+.post:first-child {
+    margin-top: 0;
+}
+
+.post:last-child {
+    border-bottom: none;
+}
+
+.postDate {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.postBody {
+    margin: 1rem 0;
+}
+
+.newPostForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.newPostForm label {
+    margin-top: 1rem;
+}
+
+.newPostForm input[type='text'], 
+.newPostForm textarea {
+    border-radius: 0.25rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    margin-right: 0.25rem;
+    outline: none;
+    padding: 0.25rem;
+
+    width: 100%;
+    min-height: 48px;
+}
+
+.newPostForm textarea {
+     height: 100px;
+}
+
+.newPostForm button {
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    
+    height: 48px;
+    min-width: 48px;
+}
+
+.Missing h2, .PostPage h2, 
+.Missing p, .PostPage p {
+    margin-bottom: 1rem;
+}
+
+.PostPage button {
+    background-color: red;
+    border-radius: 0.25rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+
+    height: 48px;
+    min-width: 48px;
+}
+
+.statusMsg {
+    margin: 2rem 0 0 0;
+}
+
+@media only screen and (min-width: 610px) {
+
+    html {
+        font-size: 22px;
+    }
+
+    .Header h1 {
+        font-size: 2rem;
+    }
+
+    .Nav {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .Nav ul {
+        text-align: right;
+    }
+
+    .Nav li:focus, 
+    .Nav li:hover, 
+    .Nav li:focus a, 
+    .Nav li:hover a {
+        background-color: #eee;
+        color: #333;
+    }
+
+    .searchForm {
+        padding: .5rem 0;
+        width: 50%;
+    }
+
+    .searchForm input[type="text"] {
+        margin: 0 0 0 .5rem;
+    }
+
+    .newPostForm textarea {
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+    .Header svg {
+        font-size: 3rem;
+    }
 }
